@@ -128,7 +128,7 @@ export default function AdminDashboard() {
                   tickFormatter={(v) => v >= 1_000_000 ? `${(v / 1_000_000).toFixed(0)}M` : String(v)}
                 />
                 <Tooltip
-                  formatter={(v: number) => [formatPrice(v), 'Doanh thu']}
+                  formatter={(v) => [formatPrice(Number(v)), 'Doanh thu']}
                   contentStyle={{ borderRadius: 12, border: '1px solid #e2e8f0', fontSize: 12 }}
                 />
                 <Bar dataKey="revenue" fill="#1D4ED8" radius={[4, 4, 0, 0]} />
@@ -155,9 +155,10 @@ export default function AdminDashboard() {
                   ))}
                 </Pie>
                 <Tooltip
-                  formatter={(v: number, _: string, props: { payload?: { status: string } }) => [
-                    v, STATUS_LABELS[props.payload?.status || ''] || props.payload?.status
-                  ]}
+                  formatter={(v, _n, item) => {
+                    const status = (item?.payload as { status?: string } | undefined)?.status || ''
+                    return [Number(v), STATUS_LABELS[status] || status]
+                  }}
                   contentStyle={{ borderRadius: 12, border: '1px solid #e2e8f0', fontSize: 12 }}
                 />
                 <Legend
