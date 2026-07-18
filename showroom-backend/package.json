@@ -21,15 +21,15 @@
     "express-validator": "^7.1.0",
     "jsonwebtoken": "^9.0.2",
     "multer": "^1.4.5-lts.1",
+    "@types/express": "^4.17.21",
+    "@types/jsonwebtoken": "^9.0.6",
+    "@types/node": "^20.14.2",
     "uuid": "^10.0.0"
   },
   "devDependencies": {
     "@types/bcrypt": "^5.0.2",
     "@types/cors": "^2.8.17",
-    "@types/express": "^4.17.21",
-    "@types/jsonwebtoken": "^9.0.6",
     "@types/multer": "^1.4.11",
-    "@types/node": "^20.14.2",
     "@types/uuid": "^10.0.0",
     "prisma": "^5.14.0",
     "ts-node-dev": "^2.0.0",
